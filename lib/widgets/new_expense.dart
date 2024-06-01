@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
 
 class NewExpense extends StatefulWidget {
@@ -65,6 +64,7 @@ class _NewExpenseState extends State<NewExpense> {
     if (_titleController.text.trim().isEmpty ||
         amountIsInvalid ||
         _selectedDate == null) {
+      _showDialog();
       return;
     }
 
@@ -278,7 +278,7 @@ class _NewExpenseState extends State<NewExpense> {
                         child: const Text('Save Expense'),
                       ),
                       const SizedBox(width: 10),
-                      ElevatedButton(
+                      TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
