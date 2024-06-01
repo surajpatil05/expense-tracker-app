@@ -104,10 +104,13 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
+
     return LayoutBuilder(builder: (ctx, constraints) {
       final width = constraints.maxWidth;
-      print(constraints.maxWidth);
-      print(constraints.maxHeight);
+      final height = constraints.maxHeight;
+
+      bool isTabletPortrait = width >= 640 && height >= 1294;
+      bool isTabletLandscape = width >= 760 && height >= 640;
 
       return SizedBox(
         height: double.infinity,
@@ -116,7 +119,7 @@ class _NewExpenseState extends State<NewExpense> {
             padding: EdgeInsets.fromLTRB(16, 48, 16, keyboardSpace + 16),
             child: Column(
               children: [
-                if (width >= 640) // screen oriantation problem
+                if (isTabletPortrait == isTabletLandscape)
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -150,7 +153,7 @@ class _NewExpenseState extends State<NewExpense> {
                       label: Text('Title'),
                     ),
                   ),
-                if (width >= 640)
+                if (isTabletPortrait == isTabletLandscape)
                   Row(
                     children: [
                       DropdownButton(
@@ -224,10 +227,10 @@ class _NewExpenseState extends State<NewExpense> {
                     ],
                   ),
                 const SizedBox(height: 16),
-                if (width >= 640)
+                if (isTabletPortrait == isTabletLandscape)
                   Row(
                     children: [
-                      const SizedBox(width: 350),
+                      const Spacer(),
                       ElevatedButton(
                         onPressed: () {
                           _submitExpenseData();
@@ -235,7 +238,7 @@ class _NewExpenseState extends State<NewExpense> {
                         child: const Text('Save Expense'),
                       ),
                       const SizedBox(width: 10),
-                      ElevatedButton(
+                      TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -267,7 +270,7 @@ class _NewExpenseState extends State<NewExpense> {
                           });
                         },
                       ),
-                      const SizedBox(width: 265),
+                      const Spacer(),
                       ElevatedButton(
                         onPressed: () {
                           _submitExpenseData();

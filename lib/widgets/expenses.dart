@@ -109,7 +109,7 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: width < 1318
+      body: width < 1333
           ? Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
