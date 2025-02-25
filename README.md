@@ -11,9 +11,8 @@ A **simple Flutter expense tracking app** that helps users manage their expenses
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="./app_screenshots/expense_screen.png" alt="Home Screen" width="30%"/>
+  <img src="./app_screenshots/expense_deleted.png" alt="Home Screen" width="30%"/>
   <img src="./app_screenshots/add_expense.png" alt="Add Expense Screen" width="30%"/>
-  <img src="./app_screenshots/expense_deleted.png" alt="Add Expense Screen" width="30%"/>
 </p>
 
 ## 📚 Dependencies
